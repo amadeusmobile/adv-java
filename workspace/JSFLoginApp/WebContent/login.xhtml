@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Login Page</title>
+</head>
+<body>
+	<f:view>
+	<h:form>
+	<h:panelGrid columns="3">
+	<h:outputText value="Name : "/>
+	<h:inputText value="#{loginBean.userName}" required="true" id="t1">
+	<f:validateLength minimum="6" maximum="9"/>
+	</h:inputText>
+	<h:message for="t1"/>
+	<h:outputText value="Password : "/><h:inputText value="#{loginBean.password}" required="true" id="t2"/>
+	<h:message for="t2"/>	
+	<h:commandButton value="Login" action="#{loginBean.doLogin}"/>
+	</h:panelGrid>
+	</h:form>
+	<h:outputText value="" binding="#{loginBean.loginFlag}"/>
+	</f:view>
+</body>
+</html>

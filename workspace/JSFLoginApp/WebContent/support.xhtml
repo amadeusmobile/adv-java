@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ct="http://alchemy.com/tags">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<f:view>
+		<h1>Problem Registration Page</h1>
+		<h:messages />
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Name :" />
+				<h:inputText value="#{supportBean.name}" />
+				<h:outputText value="Email :" />
+				<h:inputText value="#{supportBean.email}">
+					<ct:mailValidator />
+				</h:inputText>
+
+				<h:outputText value="Phone :" />
+				<h:inputText value="#{supportBean.phone}">
+					<ct:converterPhone />
+				</h:inputText>
+				<h:outputText value="Item :" />
+				<h:selectOneMenu value="#{supportBean.item}">
+					<f:selectItems value="#{supportBean.items}" />
+				</h:selectOneMenu>
+				<h:outputText value="Warranty :" />
+
+				<h:selectOneRadio value="#{supportBean.warranty}">
+					<f:selectItem itemLabel="6 months" itemValue="6 months" />
+					<f:selectItem itemLabel="12 months" itemValue="12 months" />
+					<f:selectItem itemLabel="24 months" itemValue="24 months" />
+				</h:selectOneRadio>
+				<h:outputText value="DOP :" />
+				<h:inputText value="#{supportBean.dop}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:inputText>
+				<h:outputText value="Prob. Desc :" />
+				<h:inputTextarea value="#{supportBean.problem}" cols="20" rows="10" />
+				<h:commandButton value="Submit" action="reg" />
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</body>
+</html>

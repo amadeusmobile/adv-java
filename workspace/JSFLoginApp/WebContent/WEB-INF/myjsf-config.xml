@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	<application>
+		<message-bundle>com.demo.jsf.mymessages</message-bundle>
+	</application>
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>com.demo.jsf.LoginBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>supportBean</managed-bean-name>
+		<managed-bean-class>com.demo.jsf.SupportBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/success.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>failure</from-outcome>
+			<to-view-id>/failure.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/support.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>reg</from-outcome>
+			<to-view-id>/regSuccess.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<lifecycle>
+		<phase-listener>com.demo.jsf.MyPhaseListener</phase-listener>
+	</lifecycle>
+	<validator>
+		<validator-id>emailValidator</validator-id>
+		<validator-class>com.demo.jsf.EmailValidator</validator-class>
+	</validator>
+	<converter>
+		<converter-id>phoneConverter</converter-id>
+		<converter-class>com.demo.jsf.PhoneConverter</converter-class>
+	</converter>
+</faces-config>

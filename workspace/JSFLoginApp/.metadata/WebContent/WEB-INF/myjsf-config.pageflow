@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13685163091140" configfile="/JSFLoginApp/WebContent/WEB-INF/myjsf-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="370" id="pf13685229758181" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13685229758182 pf13685229758183" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="success.xhtml" x="338" y="178" id="pf13685229758184" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13685229758182" path="/success.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="failure.xhtml" x="338" y="562" id="pf13685229758195" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf13685229758183" path="/failure.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="support.xhtml" x="122" y="946" id="pf13685229758196" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13685229758197" path="/support.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="regSuccess.xhtml" x="338" y="946" id="pf13685229758198" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13685229758197" path="/regSuccess.xhtml"/>
+  <links id="pf13685229758182" target="pf13685229758184" source="pf13685229758181" outcome="success"/>
+  <links id="pf13685229758183" target="pf13685229758195" source="pf13685229758181" outcome="failure"/>
+  <links id="pf13685229758197" target="pf13685229758198" source="pf13685229758196" outcome="reg"/>
+</pageflow:Pageflow>
