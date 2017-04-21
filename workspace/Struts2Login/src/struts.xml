@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- <global-results>
+			<result name="appEx">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="appEx"
+				exception="com.demo.struts2.ApplicationException"></exception-mapping>
+		</global-exception-mappings> -->
+		<action name="demologin">
+			<result>/login.jsp</result>
+		</action>
+		<action name="login" class="com.demo.struts2.LoginAction">
+		<exception-mapping result="ex1" exception="com.demo.struts2.ApplicationException"/>
+			<result name="success" type="chain">getResitration</result>
+			<result name="failure">/failure.jsp</result>
+			<result name="input">/login.jsp</result>
+			<result name="ex1">/error2.jsp</result>
+		</action>
+		<action name="getResitration">
+			<result>/register.jsp</result>
+		</action>
+		<action name="register" class="com.demo.struts2.RegisterAction">
+			<result name="success">/response.jsp</result>
+			<result name="input">/register.jsp</result>
+
+		</action>
+
+	</package>
+
+
+
+</struts>

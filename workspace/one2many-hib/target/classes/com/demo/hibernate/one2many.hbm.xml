@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.demo.hibernate.Emp" table="MYEMP">
+		<id name="empId" type="int" column="EMPNO">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="string" column="NAME" />
+		<property name="city" type="string" column="ADDRESS" />
+		<property name="salary" type="double" column="SALARY" />
+		<many-to-one name="dept" class="com.demo.hibernate.Dept" column="DNO"/>
+	</class>
+
+	<class name="com.demo.hibernate.Dept" table="MYDEPT">
+		<id name="deptNo" type="int" column="DNO">
+			<generator class="assigned" />
+		</id>
+		<property name="deptName" type="string" column="DNAME" />
+		<property name="manager" type="string" column="MANAGER" />
+
+		<set name="emps" table="MYEMP">
+			<key column="DNO" />
+			<one-to-many class="com.demo.hibernate.Emp" />
+		</set>
+	</class>
+
+</hibernate-mapping>
